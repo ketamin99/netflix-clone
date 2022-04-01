@@ -19,16 +19,16 @@ function Row({title, fetchUrl}) {
   return (
     <div>
         <h3>{title}</h3>
-          <ul >
-        <div className="movieImgList">
+        <div >
+          <ul className="movieImgList">
             {movieList.map(movie => (
-              <li>
+              <li key={movie.id} >
                 <img  src={`${w500Image}${movie.backdrop_path}`} alt={movie.name} ></img>
               </li>
             ))}
+          </ul>
         </div>
 
-          </ul>
 
     </div>
   )

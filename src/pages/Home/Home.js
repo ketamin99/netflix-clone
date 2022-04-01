@@ -7,6 +7,12 @@ function home() {
     <div>
         <Row title="Trending Movie" fetchUrl={requests.fetchTrendingMovie} />
         <Row title="Trending Tv" fetchUrl={requests.fetchTrendingTv} />
+        <Row title="Trending Tv" fetchUrl={requests.fetchTrendingTv} />
+        <Row title="Trending Tv" fetchUrl={requests.fetchTrendingTv} />
+        <Row title="Trending Tv" fetchUrl={requests.fetchTrendingTv} />
+        <Row title="Trending Tv" fetchUrl={requests.fetchTrendingTv} />
+        <Row title="Trending Tv" fetchUrl={requests.fetchTrendingTv} />
+        <Row title="Trending Tv" fetchUrl={requests.fetchTrendingTv} />
     </div>
   )
 }

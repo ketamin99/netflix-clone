@@ -1,5 +1,22 @@
 .movieImgList {
-    width: 180px;
     display:flex;
-    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding:20px;
+    li {
+        object-fit: contain;
+        width: 100%;
+        max-height: 100px;
+        margin-right: 10px;
+        transition: transform 450ms;
+
+    }
+    li:hover{
+        transform: scale(1.08)
+    }
+}
+
+.movieImgList::-webkit-scrollbar{
+    display:none;
+
 }
