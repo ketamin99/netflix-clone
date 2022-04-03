@@ -1,37 +1,57 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import axios from '../../api/instance'
 import './row.scss'
+import { FaAngleRight } from 'react-icons/fa'
 
-const orginalImage ="https://image.tmdb.org/t/p/original";
-const w500Image ="https://image.tmdb.org/t/p/w300"
 
-function Row({title, fetchUrl}) {
+const orginalImage ="https://image.tmdb.org/t/p/w300"
+
+function Row({title, fetchUrl, isLargeRow}) {
   const [movieList, setMovieList] = useState([])
 
+  console.log(movieList);
   useEffect(() => {
     async function fetchData(){
         const getData = await axios.get(fetchUrl)
-        setMovieList(getData.data.results)    
+        setMovieList(getData.data.results)
       }
       fetchData()
-    },[fetchUrl])
+    },[fetchUrl]);
+
+  
+
+    const myRef = useRef(null)
+  
+    const executeScroll = () => myRef.current.scroll(100,0)    
+    
+    
+    
+
+  
 
   return (
-    <div>
-        <h3>{title}</h3>
-        <div >
-          <ul className="movieImgList">
-            {movieList.map(movie => (
-              <li key={movie.id} >
-                <img  src={`${w500Image}${movie.backdrop_path}`} alt={movie.name} ></img>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <div className='row'>
+      <h3>{title}</h3>
+        {movieList.map(movie => (
+      <div ref={myRef} className='row__posters' >
+            <img
+              className="row__poster"
+              key={movie.id}
+              id={movie.id}
+              src={`${orginalImage}${isLargeRow ? movie.poster_path: movie.backdrop_path } `}
+              alt={movie.name || movie.id} >
+            </img>
+          
 
-
+      </div>
+        ))}
+        <button
+          onClick={executeScroll}
+          className="angleRightToSlide">
+            <FaAngleRight/>
+        </button>
     </div>
-  )
+    )
 }
 
 export default Row

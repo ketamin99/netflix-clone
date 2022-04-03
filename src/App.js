@@ -13,9 +13,9 @@ function App() {
       <Link to="/category">Category</Link>|{" "}
       
      <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home  />} />
       <Route path="/movie" element={<Movie />} />
-      <Route path="/category" element={<Category />} />
+      <Route path="/category:username" element={<Category />} />
      </Routes>
     </div>
   );

@@ -1,22 +1,29 @@
-.movieImgList {
-    display:flex;
-    overflow-x: scroll;
+.row__posters{
+    display: flex;
     overflow-y: hidden;
-    padding:20px;
-    li {
+    overflow-x: scroll;
+    padding: 20px;
+    .row__poster{
         object-fit: contain;
+        display: flex;
         width: 100%;
-        max-height: 100px;
-        margin-right: 10px;
+        min-height: 100px;
         transition: transform 450ms;
-
+        margin-right: 20px;
     }
-    li:hover{
-        transform: scale(1.08)
+    .row__poster:hover{
+        transform: scale(1.06)
     }
 }
+.row__posters::-webkit-scrollbar{
+    display: none;
 
-.movieImgList::-webkit-scrollbar{
-    display:none;
+}
 
+.angleRightToSlide{
+    .svg{
+        width: 55px;
+        height: auto;
+
+    }
 }
