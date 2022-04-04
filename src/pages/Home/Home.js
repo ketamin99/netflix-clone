@@ -8,7 +8,9 @@ function home() {
         <Row 
           title="Trending Movie" 
           fetchUrl={requests.fetchTrendingMovie}
-          isLargeRow={true} />
+          isLargeRow={true} 
+          
+          />
         <Row 
           title="Action Movies" 
           fetchUrl={requests.fetchActionMovies} />
