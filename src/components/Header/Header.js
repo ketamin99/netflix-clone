@@ -1,10 +1,11 @@
 import React from 'react'
-import NetflixLogo from '../../assets'
+import Logo from '../../assets/Logo/Logo'
 
 function Header() {
   return (
     <div>
-        <NetflixLogo />
+        <Logo  />
+        
     </div>
   )
 }

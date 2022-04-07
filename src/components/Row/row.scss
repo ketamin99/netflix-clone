@@ -1,18 +1,49 @@
-.row__posters{
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    .row__poster{
-        width: 300px;
-        padding: 10px;
+.row{
+    position: relative;
+    .row__posters{
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        img{
+            display: block;
+            width: 300px;
+            padding: 10px;
+        }
+        img:hover{
+            transform:  scale(1.06);
+            transition-duration: 0.8s;
+    
+        }
+        h1{
+            color:white
+        }
     }
-    .row__poster:hover{
-        transform:  scale(1.06);
-        transition-duration: 0.8s;
+    
+    .row__posters::-webkit-scrollbar{
+        display:none
+    }
+    .movieListNav{
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        z-index: 1;
+        background-color: transparent;
+        
+        button{
+            background-color: transparent;
+            color: white;
+            margin: 35px;
+            svg{
+                height: 62px;
+                width: 29px;
+                fill: white;
+                background-color: transparent;
+            }
+            -webkit-appearance: none;
+            appearance:none;
+        }
+        
+
 
     }
-}
-
-.row__posters::-webkit-scrollbar{
-    display:none
 }

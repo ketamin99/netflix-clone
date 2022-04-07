@@ -1,10 +1,13 @@
 import React from 'react'
 import Row from '../../components/Row/Row'
+import Header from '../../components/Header/Header'
 import requests from '../../api/requests'
+import './home.scss'
 
 function home() {
   return (
     <div>
+        <Header />
         <Row 
           title="Trending Movie" 
           fetchUrl={requests.fetchTrendingMovie}
