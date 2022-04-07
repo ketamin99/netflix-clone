@@ -8,6 +8,7 @@
             display: block;
             width: 300px;
             padding: 10px;
+            height: auto;
         }
         img:hover{
             transform:  scale(1.06);
@@ -23,13 +24,17 @@
         display:none
     }
     .movieListNav{
+        width: 100vw;
         display: flex;
         justify-content: space-between;
         position: absolute;
         z-index: 1;
         background-color: transparent;
+        top: 0;
+        text-align: center;
         
         button{
+            display: flex;
             background-color: transparent;
             color: white;
             margin: 35px;

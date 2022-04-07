@@ -24,12 +24,9 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const rowPosters = useRef(null)
   const posterImg = useRef(null)
 
-  function executeScroll() {
-
-    rowPosters.current.scrollBy({
-      left:300,
-      behavior:'smooth'
-    })
+  function executeScroll(e) {
+    console.log(e.target.className.animVal);
+    
 
   }
 
@@ -66,13 +63,13 @@ function Row({ title, fetchUrl, isLargeRow }) {
       >
         <button
           onClick={executeScroll}
-          className="movieListNav-left">
-          <FaAngleLeft />
+          >
+          <FaAngleLeft className="movieListNav-left"/>
         </button>
         <button
           onClick={executeScroll}
-          className="movieListNav-right">
-          <FaAngleRight />
+          >
+          <FaAngleRight className="movieListNav-right"/>
         </button>
       
       </div>
