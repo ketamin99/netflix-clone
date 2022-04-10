@@ -1,21 +1,17 @@
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import './App.css';
 import Home from './pages/Home/Home'
-import Movie from './pages/Movie/Movie'
+import Watch from './pages/Watch/Watch'
 import Category from './pages/Category/Category'
 
 function App() {
 
   return (
     <div className="App">
-      <Link to="/">Home</Link> |{" "}
-      <Link to="/movie">Movie</Link>|{" "}
-      <Link to="/category">Category</Link>|{" "}
-      
      <Routes>
       <Route path="/" element={<Home  />} />
-      <Route path="/movie:id" element={<Movie />} />
-      <Route path="/category:username" element={<Category />} />
+      <Route path="/watch/:mvid" element={<Watch  />} />
+      <Route path="/search/:keyword" element={<Category />} />
      </Routes>
     </div>
   );

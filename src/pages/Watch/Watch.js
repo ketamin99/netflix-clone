@@ -1,19 +1,19 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import './watch.scss'
 import Header from '../../components/Header/Header'
-import './category.scss'
-
-
-function Category() {
-
-  let { keyword } = useParams();
+function Watch() {
+  
+  let { mvid } = useParams();
+  
+  
 
   return (
     <div>
       <Header />
-      this is category {keyword}
+      The movie mvid is { mvid }
     </div>
   )
 }
 
-export default Category
+export default Watch

@@ -1,7 +1,7 @@
 import React from 'react'
 import Row from '../../components/Row/Row'
 import Header from '../../components/Header/Header'
-import requests from '../../api/requests'
+import requestsMvList from '../../api/requestsMvList'
 import './home.scss'
 
 function home() {
@@ -10,28 +10,28 @@ function home() {
         <Header />
         <Row 
           title="Trending Movie" 
-          fetchUrl={requests.fetchTrendingMovie}
-          isLargeRow={true} 
+          fetchUrl={requestsMvList.fetchTrendingMovie}
+          
           
           />
         <Row 
           title="Action Movies" 
-          fetchUrl={requests.fetchActionMovies} />
+          fetchUrl={requestsMvList.fetchActionMovies} />
         <Row 
           title="Comedy Movies" 
-          fetchUrl={requests.fetchComedyMovies} />
+          fetchUrl={requestsMvList.fetchComedyMovies} />
         <Row 
           title="Documantaries" 
-          fetchUrl={requests.fetchDocumantaries} />
+          fetchUrl={requestsMvList.fetchDocumantaries} />
         <Row 
           title="RomanceMovies" 
-          fetchUrl={requests.fetchRomanceMovies} />
+          fetchUrl={requestsMvList.fetchRomanceMovies} />
         <Row 
           title="NetflixOriginals" 
-          fetchUrl={requests.fetchNetflixOriginals} />
+          fetchUrl={requestsMvList.fetchNetflixOriginals} />
         <Row 
           title="HorrorMovies" 
-          fetchUrl={requests.fetchHorrorMovies} />
+          fetchUrl={requestsMvList.fetchHorrorMovies} />
         
     </div>
   )

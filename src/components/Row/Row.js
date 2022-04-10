@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from '../../api/instance'
 import './row.scss'
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
@@ -6,9 +7,10 @@ import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
 const orginalImage = "https://image.tmdb.org/t/p/original"
 
-function Row({ title, fetchUrl, isLargeRow }) {
+function Row({ title, fetchUrl }) {
   const [movieList, setMovieList] = useState([])
 
+  const [screenWidth, setScreenWidth] = useState()
 
   useEffect(() => {
     async function fetchData() {
@@ -24,54 +26,77 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const rowPosters = useRef(null)
   const posterImg = useRef(null)
 
-  function executeScroll(e) {
-    console.log(e.target.className.animVal);
-    
+  useEffect(() => {
+    window.addEventListener('resize', setScreenWidth(window.innerWidth-30))
+      return () => window.removeEventListener('resize', setScreenWidth(window.innerWidth-30));
+  },[screenWidth])
+
+
+  function scrollLeft() {
+    rowPosters.current.scrollBy({
+      left: -screenWidth,
+      behavior: "smooth"
+
+    })
+  }
+  function scrollRight() {
+    rowPosters.current.scrollBy({
+      left: screenWidth,
+      behavior: "smooth"
+      
+    })
+  }
+
+
+
+  let navigate = useNavigate();
+
+  function goToMovie(e) {
+    const movieId = e.target.id
+    navigate(`watch/${movieId}`)
 
   }
 
-  function goToMovie() {
-    
-
-  }
 
 
 
   return (
     <div className='row'>
-      <h3>{title}</h3>
+      <h1>{title}</h1>
       <div ref={rowPosters} className='row__posters' >
         {movieList.map(movie => (
-          <>
+          <div className='row__poster'>
             <img
               ref={posterImg}
-              className="row__poster"
               key={`img${movie.id}`}
               id={movie.id}
-              src={`${orginalImage}${isLargeRow ? movie.poster_path : movie.backdrop_path} `}
+              src={`${orginalImage}${movie.backdrop_path} `}
               alt={movie.name || movie.id}
               onClick={goToMovie}
             >
             </img>
-            
+            <h3
+              key={`title${movie.id}`}>
+                {movie.name || movie.title}
+            </h3>
 
-          </>
+          </div>
         ))}
       </div>
       <div
         className="movieListNav"
       >
-        <button
-          onClick={executeScroll}
-          >
-          <FaAngleLeft className="movieListNav-left"/>
+        <button className='btn btn__left'
+          onClick={scrollLeft}
+        >
+          <FaAngleLeft  />
         </button>
-        <button
-          onClick={executeScroll}
-          >
-          <FaAngleRight className="movieListNav-right"/>
+        <button className='btn btn__right'
+          onClick={scrollRight}
+        >
+          <FaAngleRight />
         </button>
-      
+
       </div>
     </div>
   )
