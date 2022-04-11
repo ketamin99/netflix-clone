@@ -1,18 +1,32 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import { React, useState, useEffect } from 'react'
 import axios from '../../api/instance';
-import RequestMvDetail from '../../api/RequestMvDetail'
+import requests from '../../api/requestsMvList';
+import './mvDetail.scss'
 
-function MvDetail() {
+function MvDetail({ movieId }) {
+  const [movieData, setMovieData] = useState()
 
-  let { mvId } = useParams();
+  useEffect(() => {
+    async function fetchMovieDetail(){
+      let mvData = await axios.get(`/movie/${movieId}/videos?${requests.fetchMovieDetail}`)
+      setMovieData(mvData.data.results)
+      return mvData.data.results
+    }
+    fetchMovieDetail()
+  },[movieId])
 
-  async function getMvDetail(){
-    let mvData = await axios.get(requests.fetchMovieDetail)
-  }
   return (
     <div>
-        <RequestMvDetail mvId={mvId} />
+      
+        <iframe 
+          src={`https://www.youtube-nocookie.com/embed/y_6aSG2yfe8`} 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        
+        
     </div>
   )
 }

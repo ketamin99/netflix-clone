@@ -10,7 +10,6 @@ const orginalImage = "https://image.tmdb.org/t/p/original"
 function Row({ title, fetchUrl }) {
   const [movieList, setMovieList] = useState([])
 
-  const [screenWidth, setScreenWidth] = useState()
 
   useEffect(() => {
     async function fetchData() {
@@ -22,26 +21,27 @@ function Row({ title, fetchUrl }) {
   }, [fetchUrl]);
 
 
-
   const rowPosters = useRef(null)
   const posterImg = useRef(null)
+  
+  
 
-  useEffect(() => {
-    window.addEventListener('resize', setScreenWidth(window.innerWidth-30))
-      return () => window.removeEventListener('resize', setScreenWidth(window.innerWidth-30));
-  },[screenWidth])
+  
+    
 
+  
+ 
 
   function scrollLeft() {
     rowPosters.current.scrollBy({
-      left: -screenWidth,
+      left: -window.innerWidth,
       behavior: "smooth"
 
     })
   }
   function scrollRight() {
     rowPosters.current.scrollBy({
-      left: screenWidth,
+      left: window.innerWidth,
       behavior: "smooth"
       
     })
@@ -62,10 +62,13 @@ function Row({ title, fetchUrl }) {
 
   return (
     <div className='row'>
-      <h1>{title}</h1>
+      <h1
+      >{title}</h1>
       <div ref={rowPosters} className='row__posters' >
         {movieList.map(movie => (
-          <div className='row__poster'>
+          <div
+            key={`container${movie.id}`}
+            className='row__poster'>
             <img
               ref={posterImg}
               key={`img${movie.id}`}
@@ -86,12 +89,14 @@ function Row({ title, fetchUrl }) {
       <div
         className="movieListNav"
       >
-        <button className='btn btn__left'
+        <button 
+          className='btn btn__left'
           onClick={scrollLeft}
         >
           <FaAngleLeft  />
         </button>
-        <button className='btn btn__right'
+        <button 
+          className='btn btn__right'
           onClick={scrollRight}
         >
           <FaAngleRight />

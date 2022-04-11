@@ -1,17 +1,17 @@
-import React from 'react'
+import { React } from 'react'
 import { useParams } from 'react-router-dom'
 import './watch.scss'
 import Header from '../../components/Header/Header'
-function Watch() {
-  
-  let { mvid } = useParams();
-  
-  
+import MvDetail from '../../components/MovieDetail/MvDetail'
 
+function Watch() {
+  let { mvId } = useParams();
+
+  
   return (
     <div>
       <Header />
-      The movie mvid is { mvid }
+      <MvDetail movieId={mvId} />
     </div>
   )
 }
