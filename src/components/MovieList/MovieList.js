@@ -10,12 +10,13 @@ function MovieList({ keyword }) {
 
     useEffect(() => {
         async function fetchMovieList(){
-            console.log(axios.get(`${requestsMvList.fetchMovieList}query=${keyword}`));
-            setMvList(mvList)
+            let mvData = await axios.get(`${requestsMvList.fetchSearchKeyword}query=${keyword}`)
+            setMvList(mvData.data)
         }
         fetchMovieList()
-},[keyword])
+    },[keyword])
 
+    console.log(mvList);
 
   return (
 
