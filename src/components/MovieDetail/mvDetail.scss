@@ -1,4 +1,13 @@
-iframe{
-    width: 80vw;
-    height: 70vh;
+.watch{
+    .watch__videos{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        iframe{
+            margin:auto;
+            width: 80vh;
+            height: 50vw;
+            padding:10px;
+        }
+    }
 }

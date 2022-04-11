@@ -6,6 +6,8 @@ import './mvDetail.scss'
 function MvDetail({ movieId }) {
   const [movieData, setMovieData] = useState()
 
+  const [movieDisplay, setMovieDisplay] = useState()
+
   useEffect(() => {
     async function fetchMovieDetail(){
       let mvData = await axios.get(`/movie/${movieId}/videos?${requests.fetchMovieDetail}`)
@@ -15,18 +17,33 @@ function MvDetail({ movieId }) {
     fetchMovieDetail()
   },[movieId])
 
+  useEffect(() => {
+    function handleMovieDisplay(){
+      let mvDisplay = movieData?.slice(0,5)
+      setMovieDisplay(mvDisplay) 
+    }
+    handleMovieDisplay()
+  },[movieData])
+
+  
+
+
   return (
-    <div>
-      
-        <iframe 
-          src={`https://www.youtube-nocookie.com/embed/y_6aSG2yfe8`} 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-        
-        
+    <div className='watch'>
+      <div className='watch__videos'>
+        {movieDisplay?.map(movie =>(
+          <>
+            <iframe 
+              src={`https://www.youtube-nocookie.com/embed/${movie.key}` }
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </>
+        ))}
+      </div>
+     
     </div>
   )
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../../components/Header/Header'
-import './category.scss'
+import MovieList from '../../components/MovieList/MovieList'
+import './search.scss'
 
 
 function Category() {
@@ -11,7 +12,8 @@ function Category() {
   return (
     <div>
       <Header />
-      this is category {keyword}
+      <MovieList keyword={keyword}/>
+      
     </div>
   )
 }

@@ -15,7 +15,6 @@ function Header() {
       setKeyWords(e.target.value)
     }
     
-    console.log(keywords);
  
   function handleSearch(){
     navigate(`/search/${keywords}`)
@@ -34,6 +33,7 @@ function Header() {
           type="text" 
           placeholder="Search for..."
           onChange={handleInputChange}
+          value={keywords}
         />
         <button onClick={handleSearch}>
           <BsSearch  />
