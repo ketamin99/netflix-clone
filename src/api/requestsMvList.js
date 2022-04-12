@@ -17,7 +17,9 @@ const requests = {
     fetchRomanceMovies: `/discover/movie?api_key=${apiKey}&with_genres=10749`,
     fetchDocumantaries: `/discover/movie?api_key=${apiKey}&with_genres=99`,
     apiKey: `api_key=${apiKey}&language=en-US`,
-    fetchSearchKeyword:`/search/keyword?api_key=${apiKey}&`
+    fetchSearchKeyword:`/search/movie?api_key=${apiKey}&language=en-US&query=k&`,
+    orginalImage: "https://image.tmdb.org/t/p/original",
+
 }
 
 export default requests

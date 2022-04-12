@@ -1,4 +1,10 @@
 .watch{
+    .watch__details{
+        img{
+            width: 100vw;
+            height: 50vh;
+        }
+    }
     .watch__videos{
         display: flex;
         justify-content: center;

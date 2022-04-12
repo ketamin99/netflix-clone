@@ -1,13 +1,14 @@
-import React from 'react'
+import {React} from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../../components/Header/Header'
 import MovieList from '../../components/MovieList/MovieList'
 import './search.scss'
 
 
-function Category() {
+function Search() {
 
   let { keyword } = useParams();
+
 
   return (
     <div>
@@ -18,4 +19,4 @@ function Category() {
   )
 }
 
-export default Category
+export default Search

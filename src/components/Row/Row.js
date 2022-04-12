@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from '../../api/instance'
+import requestsMvList from '../../api/requestsMvList'
 import './row.scss'
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
 
-const orginalImage = "https://image.tmdb.org/t/p/original"
+
 
 function Row({ title, fetchUrl }) {
   const [movieList, setMovieList] = useState([])
@@ -58,7 +59,7 @@ function Row({ title, fetchUrl }) {
   }
 
 
-
+  console.log(axios.or)
 
   return (
     <div className='row'>
@@ -73,7 +74,7 @@ function Row({ title, fetchUrl }) {
               ref={posterImg}
               key={`img${movie.id}`}
               id={movie.id}
-              src={`${orginalImage}${movie.backdrop_path} `}
+              src={`${requestsMvList.orginalImage}${movie.backdrop_path} `}
               alt={movie.name || movie.id}
               onClick={goToMovie}
             >

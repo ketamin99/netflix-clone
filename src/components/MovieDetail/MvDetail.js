@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import axios from '../../api/instance';
+import tmdbApi from '../../api/tmdbApi';
 import requests from '../../api/requestsMvList';
 import './mvDetail.scss'
 
@@ -13,23 +13,21 @@ function MvDetail({ movieId }) {
   const [movieDetails, setMovieDetails] = useState()
 
   useEffect(() => { 
-    async function fetchMovieDetails(){
-      let mvDetails = await axios.get(`movie/${movieId}?${requests.apiKey}`)
+    async function getMovieDetails(){
+      let mvDetails = await tmdbApi.fetchMovieDetails(movieId)
       setMovieDetails(mvDetails.data)
       return mvDetails.data
     }
-    fetchMovieDetails()
+    getMovieDetails()
   },[movieId])
 
-  
-
   useEffect(() => {
-    async function fetchMovieVideos(){
-      let mvData = await axios.get(`/movie/${movieId}/videos?${requests.apiKey}`)
+    async function getVideos(){
+      let mvData = await tmdbApi.fetchMovieVideos(movieId)
       setMovieVideos(mvData.data.results)
       return mvData.data.results
     }
-    fetchMovieVideos()
+    getVideos()
   },[movieId])
 
   useEffect(() => {
@@ -46,7 +44,10 @@ function MvDetail({ movieId }) {
   return (
     <div className='watch'>
       <div className='watch__details'>
-        
+        <img 
+        src={`${requests.orginalImage}${movieDetails.backdrop_path}`}
+        alt={`${movieDetails.original_title}`}>
+        </img>
       </div>
       <div className='watch__videos'>
         {movieDisplay?.map(movie =>(
