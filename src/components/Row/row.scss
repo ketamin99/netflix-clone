@@ -30,11 +30,7 @@
         }
         
     }
-    
-    
-        
-    
-    
+
 
     .row__posters::-webkit-scrollbar{
         display:none
@@ -55,13 +51,14 @@
         }
         
         .btn__left{
-            left: 0px;
-            top: 113px;
+            left: 0;
+            bottom: 113px;
         }
         
         .btn__right{
-            right: 0px;
-            bottom: 122px;
+            right: 0;
+            bottom: 113px;
+
         }
 
     }

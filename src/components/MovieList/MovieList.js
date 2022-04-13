@@ -12,7 +12,10 @@ function MovieList({ keyword }) {
     useEffect(() => {
         async function getSearchMovie(){
             let mvData = await tmdbApi.fetchMovieKeywords(keyword)
-            setMvList(mvData.data.results)
+
+            let filterMvData = mvData.data.results.filter(movie => movie.backdrop_path || movie.poster_path)
+
+            setMvList(filterMvData)
         }
         getSearchMovie()
     },[keyword])
@@ -27,7 +30,7 @@ function MovieList({ keyword }) {
           <div className="search__video" onClick={console.log(123)} >
             <a href={`/watch/${movie.id}`} >
               <img 
-              src={`${requests.orginalImage}${movie.poster_path}`}
+              src={`${requests.orginalImage}${movie.poster_path || movie.backdrop_path}`}
               alt={movie.orginal_title}
               key={`img${movie.id}`}
               ></img>
