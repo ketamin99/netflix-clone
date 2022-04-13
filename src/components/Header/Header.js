@@ -28,6 +28,7 @@ function Header() {
       <a href='/'>
         <Logo  />
       </a>
+      
       <form >
         <input 
           type="text" 

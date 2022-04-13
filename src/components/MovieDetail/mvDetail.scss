@@ -1,8 +1,21 @@
 .watch{
     .watch__details{
+        position: relative;
+        display:flex;
+        justify-content: center;
         img{
-            width: 100vw;
-            height: 50vh;
+            width: 80vw;
+            height: auto;
+            margin:10px;
+        }
+        div{
+            top: 45px;
+            position:absolute;
+            background-color: transparent;
+            span{
+                background-color: transparent;
+
+            }
         }
     }
     .watch__videos{
@@ -11,8 +24,8 @@
         flex-direction: column;
         iframe{
             margin:auto;
-            width: 80vh;
-            height: 50vw;
+            width: 50vw;
+            height: 60vh;
             padding:10px;
         }
     }

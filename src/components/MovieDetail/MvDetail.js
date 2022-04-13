@@ -45,9 +45,14 @@ function MvDetail({ movieId }) {
     <div className='watch'>
       <div className='watch__details'>
         <img 
-        src={`${requests.orginalImage}${movieDetails.backdrop_path}`}
-        alt={`${movieDetails.original_title}`}>
+        src={`${requests.orginalImage}${movieDetails?.backdrop_path}`}
+        alt={`${movieDetails?.original_title}`}>
         </img>
+        <div>
+          <span>{movieDetails?.original_title}</span>
+          <br />
+          <span>{movieDetails?.overview}</span>
+        </div>
       </div>
       <div className='watch__videos'>
         {movieDisplay?.map(movie =>(
@@ -55,14 +60,13 @@ function MvDetail({ movieId }) {
             <iframe 
               src={`https://www.youtube-nocookie.com/embed/${movie.key}` }
               title="YouTube video player" 
-              frameborder="0" 
+              frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen="allowfullscreen"
+              allowFullScreen="allowFullScreen"
               mozallowfullscreen="mozallowfullscreen" 
               msallowfullscreen="msallowfullscreen" 
               oallowfullscreen="oallowfullscreen" 
               webkitallowfullscreen="webkitallowfullscreen"
-              
               >
             </iframe>
           </>

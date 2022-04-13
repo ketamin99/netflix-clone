@@ -11,7 +11,7 @@ function Search() {
 
 
   return (
-    <div>
+    <div className='search'>
       <Header />
       <MovieList keyword={keyword}/>
       

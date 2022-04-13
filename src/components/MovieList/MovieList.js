@@ -23,14 +23,19 @@ function MovieList({ keyword }) {
 
     <div className="search">
       <div className="search__videos">
-        {mvList.map(movie => (
-          <div className="search__video">
-            <img 
-            src={`${requests.orginalImage}${movie.poster_path}`}
-            alt={movie.orginal_title}
-            key={`img${movie.id}`}
-            ></img>
-            <h3>{movie.orginal_title}</h3>
+        {mvList?.map(movie => (
+          <div className="search__video" onClick={console.log(123)} >
+            <a href={`/watch/${movie.id}`} >
+              <img 
+              src={`${requests.orginalImage}${movie.poster_path}`}
+              alt={movie.orginal_title}
+              key={`img${movie.id}`}
+              ></img>
+              <h3
+                key={`title${movie.id}`}
+              >{movie.original_title}</h3>
+
+            </a>
           </div>
 
         ))}

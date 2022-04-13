@@ -1,9 +1,31 @@
 .search{
+    
     .search__videos{
+
+        display: flex;
+        flex-wrap: wrap;
+        background-color:transparent;
+
         .search__video{
-            img{
-                width: 250px;
-                height: 100px;
+                a{
+                    background-color:transparent;
+                    margin:0;
+                    padding:0;
+                    -webkit-animation: none;
+                    
+                img{
+                    background-color:transparent;
+                    width: 300px;
+                    height: auto;
+                    padding:10px;
+                    margin: 5px;
+                }
+                h3{
+                    background-color:transparent;
+                    margin:10px;
+                    padding: 5px;
+                }
+                
             }
         }
     }

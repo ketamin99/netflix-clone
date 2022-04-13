@@ -15,14 +15,14 @@ function home() {
           
           />
         <Row 
-          title="Action Movies" 
-          fetchUrl={requestsMvList.fetchActionMovies} />
-        <Row 
           title="Comedy Movies" 
           fetchUrl={requestsMvList.fetchComedyMovies} />
         <Row 
           title="Documantaries" 
           fetchUrl={requestsMvList.fetchDocumantaries} />
+        <Row 
+          title="Action Movies" 
+          fetchUrl={requestsMvList.fetchActionMovies} />
         <Row 
           title="RomanceMovies" 
           fetchUrl={requestsMvList.fetchRomanceMovies} />
