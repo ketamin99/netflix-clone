@@ -49,9 +49,9 @@ function MvDetail({ movieId }) {
         alt={`${movieDetails?.original_title}`}>
         </img>
         <div>
-          <span>{movieDetails?.original_title}</span>
+          <h2>{movieDetails?.original_title}</h2>
           <br />
-          <span>{movieDetails?.overview}</span>
+          <h4>{movieDetails?.overview}</h4>
         </div>
       </div>
       <div className='watch__videos'>

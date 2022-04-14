@@ -11,20 +11,24 @@
         overflow-y: hidden;
         overflow-x: scroll;
         .row__poster{
-            img{
-                display: block;
-                width: 300px;
-                padding: 20px;
-                height: auto;
-            }
-            img:hover{
-                transform: scale(1.085);
-                transition-duration: 0.8s;
-                cursor: pointer;
-            }
-            h3{
-                padding: 10px;
-    
+            a{
+                text-decoration: none;
+                img{
+                    display: block;
+                    width: 300px;
+                    padding: 20px;
+                    height: auto;
+                }
+                img:hover{
+                    transform: scale(1.085);
+                    transition-duration: 0.8s;
+                    cursor: pointer;
+                }
+                h3{
+                    padding: 10px;
+        
+                }
+
             }
 
         }

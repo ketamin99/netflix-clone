@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from '../../api/instance'
 import requestsMvList from '../../api/requestsMvList'
 import './row.scss'
@@ -50,14 +49,7 @@ function Row({ title, fetchUrl }) {
 
 
 
-  let navigate = useNavigate();
-
-  function goToMovie(e) {
-    const movieId = e.target.id
-    navigate(`watch/${movieId}`)
-
-  }
-
+  
 
   console.log(axios.or)
 
@@ -70,19 +62,20 @@ function Row({ title, fetchUrl }) {
           <div
             key={`container${movie.id}`}
             className='row__poster'>
-            <img
-              ref={posterImg}
-              key={`img${movie.id}`}
-              id={movie.id}
-              src={`${requestsMvList.orginalImage}${movie.backdrop_path} `}
-              alt={movie.name || movie.id}
-              onClick={goToMovie}
-            >
-            </img>
-            <h3
-              key={`title${movie.id}`}>
-                {movie.name || movie.title}
-            </h3>
+              <a href={`/watch/${movie.id}`}>
+                <img
+                  ref={posterImg}
+                  key={`img${movie.id}`}
+                  id={movie.id}
+                  src={`${requestsMvList.orginalImage}${movie.backdrop_path} `}
+                  alt={movie.name || movie.id}
+                >
+                </img>
+                <h3
+                  key={`title${movie.id}`}>
+                    {movie.name || movie.title}
+                </h3>
+              </a>
 
           </div>
         ))}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Row from '../../components/Row/Row'
 import Header from '../../components/Header/Header'
+import SlideShow from '../../components/SlideShow/SlideShow'
 import requestsMvList from '../../api/requestsMvList'
 import './home.scss'
 
@@ -8,6 +9,7 @@ function home() {
   return (
     <div>
         <Header />
+        <SlideShow fetchUrl={requestsMvList.fetchNetflixOriginals} />
         <Row 
           title="Trending Movie" 
           fetchUrl={requestsMvList.fetchTrendingMovie}
