@@ -10,7 +10,7 @@ function Watch() {
   
   return (
     <div>
-      <Header />
+      <Header movieId={mvId} />
       <MvDetail movieId={mvId}  />
     </div>
   )

@@ -1,47 +1,81 @@
 .header{
-    display: flex;
-    justify-content: space-between;
-    a{
-        svg{
-            fill: red;
-            width: auto;
-            height: 55px;
-            margin: 10px;
-            padding: 10px;
-            cursor: pointer;
-        }
-    }
-    form{
+    position: relative;
+    .navigation{
         display: flex;
-        margin:20px;
-        input{
-            width:250px;
-            height: 46px;
-            background-color:white;
-            color:black;
-            font-size: 25px;
-            margin:auto;
-            align-items: center;
-            line-height: 24px;
-            padding: 7px 0;
-            border-radius: 10px;
-
-        }
-        button{
-            width: 50px;
-            height: 50px;
-            margin: auto;
-            margin-left: 18px;
-            border-radius: 10px;
+        justify-content: space-between;
+        position:fixed;
+        z-index: 1;
+        width: 99vw;
+        background-color:transparent;
+        a{
+            background-color:transparent;
             svg{
-                height: 33px;
+                background-color:transparent;
+                fill: red;
                 width: auto;
-                
-
+                height: 55px;
+                margin: 10px;
+                padding: 10px;
+                cursor: pointer;
             }
         }
-        
-        
+        form{
+            display: flex;
+            margin:20px;
+            background-color:transparent;
+            input{
+                width:250px;
+                height: 46px;
+                background-color:white;
+                color:black;
+                font-size: 25px;
+                margin:auto;
+                align-items: center;
+                line-height: 24px;
+                padding: 7px 0;
+                border-radius: 10px;
+
+            }
+            button{
+                width: 50px;
+                height: 50px;
+                margin: auto;
+                margin-left: 18px;
+                border-radius: 10px;
+                svg{
+                    height: 33px;
+                    width: auto;
+                    
+
+                }
+            }
+            
     }
-    
-}
+    }
+    .slideShow{
+        position:relative;
+        display:flex;
+        justify-content: center;
+        .slideShow__img{
+            object-fit: cover;
+            height: 80vh;
+            width: 100%;
+        }
+        .slideShow__description{
+            top: 95px;
+            position:absolute;
+            background-color: transparent;
+            width: 60vw;
+            h2{
+                background-color: transparent;
+                font-size: 55px;
+                font-weight: 300;
+            }
+            h4{
+                background-color: transparent;
+                font-size: 19px;
+                font-weight: 100;
+            }
+        }
+    }
+}   
