@@ -8,16 +8,19 @@ function SlideShow( {fetchUrl} ) {
   useEffect(()=>{
     async function getMovieBanner(){
       const movieData = await axios.get(fetchUrl)
-      setMovieData(movieData.data.results);
-      return movieData
+      let randomIndex = Math.floor(Math.random() * movieData.length)
+      setMovieData(movieData[randomIndex]);
     }
     getMovieBanner()
   },[fetchUrl])
 
+
   console.log(movieData);
 
   return (
-    <div>SlideShow</div>
+    <div>
+      
+    </div>
   )
 }
 

@@ -56,8 +56,12 @@ function MvDetail({ movieId }) {
       </div>
       <div className='watch__videos'>
         {movieDisplay?.map(movie =>(
-          <>
+          <div 
+            className='watch__video'
+            key={`video${movie.id}`}
+            >
             <iframe 
+              key={`iframe${movie.id}`}
               src={`https://www.youtube-nocookie.com/embed/${movie.key}` }
               title="YouTube video player" 
               frameBorder="0" 
@@ -69,7 +73,7 @@ function MvDetail({ movieId }) {
               webkitallowfullscreen="webkitallowfullscreen"
               >
             </iframe>
-          </>
+          </div>
         ))}
       </div>
      

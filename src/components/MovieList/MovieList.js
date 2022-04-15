@@ -20,7 +20,6 @@ function MovieList({ keyword }) {
         getSearchMovie()
     },[keyword])
 
-    console.log(mvList);
     
   return (
 
