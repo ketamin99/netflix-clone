@@ -29,11 +29,14 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        iframe{
-            margin:auto;
-            width: 50vw;
-            height: 60vh;
-            padding:10px;
+        .watch__video{
+            iframe{
+                margin:auto;
+                width: 50vw;
+                height: 60vh;
+                padding:10px;
+            }
+
         }
     }
 }
