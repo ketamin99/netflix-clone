@@ -54,7 +54,8 @@ function Header({ fetchUrl, movieId }) {
         <a href='/'>
           <Logo  />
         </a>
-        {movieData && <form >
+        {movieData && 
+        <form >
           <input 
             type="text" 
             placeholder="Search for..."
@@ -65,17 +66,18 @@ function Header({ fetchUrl, movieId }) {
             <BsSearch  />
           </button>
         </form>}
+        
       </div>
       <div className="slideShow">
         {movieData && <img className="slideShow__img" src={`${requests?.orginalImage}${movieData.backdrop_path}`} alt={movieData.name}></img>}
-        {<img className="slideShow__img" src={backgroundImg} alt={`backgroundImg`} />}
-        <div 
+        {!movieData && <img className="slideShow__img" src={backgroundImg} alt={`backgroundImg`} />}
+        {movieData && <div 
           className="slideShow__description"  
         >
-          <h2>{movieData?.original_title || movieData?.name }</h2>
+          <h2>{movieData.original_title || movieData.name }</h2>
           <br />
-          <h4>{movieData?.overview}</h4>
-        </div>
+          <h4>{movieData.overview}</h4>
+        </div>}
         
       </div>
     </div>
