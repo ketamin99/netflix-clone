@@ -4,6 +4,7 @@ import axios from '../../api/instance'
 import requests from '../../api/requestsMvList'
 import tmdbApi from '../../api/tmdbApi'
 import Logo from '../../assets/Logo/Logo'
+import backgroundImg from '../../assets/background-log-in.jpg'
 import './header.scss'
 import { BsSearch } from 'react-icons/bs'
 
@@ -53,7 +54,7 @@ function Header({ fetchUrl, movieId }) {
         <a href='/'>
           <Logo  />
         </a>
-        <form >
+        {movieData && <form >
           <input 
             type="text" 
             placeholder="Search for..."
@@ -63,10 +64,11 @@ function Header({ fetchUrl, movieId }) {
           <button onClick={handleSearch}>
             <BsSearch  />
           </button>
-        </form>
+        </form>}
       </div>
       <div className="slideShow">
-        {movieData && <img className="slideShow__img" src={`${requests?.orginalImage}${movieData?.backdrop_path}`} alt={movieData?.name}></img>}
+        {movieData && <img className="slideShow__img" src={`${requests?.orginalImage}${movieData.backdrop_path}`} alt={movieData.name}></img>}
+        {<img className="slideShow__img" src={backgroundImg} alt={`backgroundImg`} />}
         <div 
           className="slideShow__description"  
         >
