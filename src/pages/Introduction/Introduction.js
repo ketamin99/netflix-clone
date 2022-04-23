@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
 
-function Authen() {
+function Introduction() {
   return (
     <div>
         <Header />
+        
     </div>
   )
 }
 
-export default Authen
+export default Introduction

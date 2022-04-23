@@ -50,7 +50,18 @@
                 }
             }
             
-    }
+        }
+        .sign-in-btn{
+            width: 105px;
+            height: 50px;
+            margin:20px;
+            background-color:transparent;
+            a{
+                text-decoration: none;
+                background-color:red;
+                padding:10px;
+            }
+        }
     }
     .slideShow{
         position:relative;

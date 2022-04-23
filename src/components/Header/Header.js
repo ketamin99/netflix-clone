@@ -66,7 +66,11 @@ function Header({ fetchUrl, movieId }) {
             <BsSearch  />
           </button>
         </form>}
-        
+        {!movieData && 
+        <div className="sign-in-btn">
+          <a href='/sign-in' >Sign in</a>
+        </div>
+        }
       </div>
       <div className="slideShow">
         {movieData && <img className="slideShow__img" src={`${requests?.orginalImage}${movieData.backdrop_path}`} alt={movieData.name}></img>}
