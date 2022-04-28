@@ -4,7 +4,6 @@ import axios from '../../api/instance'
 import requests from '../../api/requestsMvList'
 import tmdbApi from '../../api/tmdbApi'
 import Logo from '../../assets/Logo/Logo'
-import backgroundImg from '../../assets/background-log-in.jpg'
 import './header.scss'
 import { BsSearch } from 'react-icons/bs'
 
@@ -46,14 +45,13 @@ function Header({ fetchUrl, movieId }) {
     
   }
   
- 
 
   return (
     <div className="header">
       <div className="navigation">
-        <a href='/'>
-          <Logo  />
-        </a>
+        
+        <Logo  className="logo" />
+        
         {movieData && 
         <form >
           <input 
@@ -66,15 +64,11 @@ function Header({ fetchUrl, movieId }) {
             <BsSearch  />
           </button>
         </form>}
-        {!movieData && 
-        <div className="sign-in-btn">
-          <a href='/sign-in' >Sign in</a>
-        </div>
-        }
       </div>
       <div className="slideShow">
-        {movieData && <img className="slideShow__img" src={`${requests?.orginalImage}${movieData.backdrop_path}`} alt={movieData.name}></img>}
-        {!movieData && <img className="slideShow__img" src={backgroundImg} alt={`backgroundImg`} />}
+        
+          {movieData && <div className="slideShow__img"> <img src={`${requests?.orginalImage}${movieData.backdrop_path || movieData.poster_path}`} alt={movieData.name}></img></div>}
+        
         {movieData && <div 
           className="slideShow__description"  
         >
@@ -82,7 +76,6 @@ function Header({ fetchUrl, movieId }) {
           <br />
           <h4>{movieData.overview}</h4>
         </div>}
-        
       </div>
     </div>
   )

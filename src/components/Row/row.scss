@@ -44,7 +44,12 @@
             height: 62px;
             width: 29px;
             fill: white;
-            background-color: transparent;
+            
+        }
+        @media only screen and (max-width: 768px) {
+            .btn{
+                display: none;
+            }
         }
         .btn{
             position: absolute;

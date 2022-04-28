@@ -5,6 +5,7 @@ import Watch from './pages/Watch/Watch'
 import Search from './pages/Search/Search'
 import Introduction from './pages/Introduction/Introduction'
 import SignIn from './pages/SignIn/SignIn'
+import Registration from './pages/Registration/Registration'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home  />} />
         <Route path="/watch/:mvId" element={<Watch  />} />
         <Route path="/search/:keyword" element={<Search />} />
+        <Route path="/registration" element={<Registration />}/>
      </Routes>
     </div>
   );

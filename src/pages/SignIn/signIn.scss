@@ -1,6 +1,79 @@
-.background{
-    width: 100%;
-    height: 100%;
-    background-image:url(../../assets//background-log-in.jpg);
+@use '../../scss/mixin' as *;
+
+.sign-in{
+    @include backgroundImageLogIn;
+    .logo{
+        @include rgbaColor(0.4);
+    }
+    .panel-container{
+        width: 100%;
+        height: 100vh;
+        @include rgbaColor(0.4);
+        display: flex;
+        justify-content:center;
+
+        .panel{
+            display:flex;
+            flex-direction: column;
+            justify-content:center;
+            @include rgbaColor(0.85);
+            margin: auto;
+            min-height: 660px;
+            width: 450px;
+            padding: 60px 60px 40px;
+            form{
+                display: flex;
+                flex-direction: column;
+                h1{
+                    
+                    font-size: 2rem;
+                    padding:  25px 0;
+                }
+                .email{
+                    margin-bottom: 20px;
+                    input{
+                        width: 100%;
+                        border-radius: 4px;
+                        background-color: #333333;
+                        height: 50px;
+                        line-height: 50px;
+                        padding: 16px 20px 0;
+                    }
+                }
+                .password{
+                    margin-bottom: 19px;
+                    input{
+                        width: 100%;
+                        border-radius: 4px;
+                        background-color: #333333;
+                        height: 50px;
+                        line-height: 50px;
+                        padding: 16px 20px 0;
+                    }
+                }
+            }
+            button{
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: 700;
+                margin: 20px 0;
+                height: 48px;
+                width: 100%;
+                background-color: red;
+            }
+            h4{
+               
+                a{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    
+    
     
 }
+
+
+
+

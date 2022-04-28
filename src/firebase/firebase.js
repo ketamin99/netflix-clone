@@ -1,4 +1,5 @@
-import firebase from "firebase"
+import { initializeApp } from 'firebase/app';
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDwoNkVM4TXpwS_n-ddcJCgw6TgcAQAUpc",
@@ -7,15 +8,14 @@ const firebaseConfig = {
   storageBucket: "netflix-clone-tmdb-api-65534.appspot.com",
   messagingSenderId: "207351142203",
   appId: "1:207351142203:web:7ac5d23ca4d87e2435091e",
-  measurementId: "G-HB5VNXW2NM"
+  measurementId: "G-HB5VNXW2NM",
 };
 
 // Initialize Firebase
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const db = firebaseApp.firestore()
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
 
-const auth =firebase.auth()
 
 export { auth }
-export default db

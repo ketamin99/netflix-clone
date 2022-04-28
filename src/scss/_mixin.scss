@@ -1,0 +1,31 @@
+@mixin backgroundImage {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("../assets/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin backgroundWhite {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+@mixin backgroundImageLogIn {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("../assets/background-log-in.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin rgbaColor($alphaColor) {
+    background-color: rgba($color: #000000, $alpha: $alphaColor);
+}
+
+@mixin transparentColor{
+    background-color: transparent;
+
+}
