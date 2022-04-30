@@ -29,3 +29,40 @@
     background-color: transparent;
 
 }
+
+@mixin inputFormAnimation {
+        position: relative;
+        input{
+            padding-top: 5px;
+            font-size: 22px;
+            color: #000;
+            padding-left: 15px;
+        };
+        input:not(:placeholder-shown) + label{
+            position: absolute;
+            top: 10%;
+            left: 10px;
+            transition:font  .1s ease;
+            font-size: 13px;
+            color: #8c8c8c;
+
+        }
+        input:focus + label{
+            position: absolute;
+            top: 10%;
+            left: 10px;
+            transition:font  .1s ease;
+            font-size: 13px;
+            color: #8c8c8c;
+
+        };
+        label{
+            position: absolute;
+            top: 30%;
+            left: 10px;
+            color: #8c8c8c;
+            font-size: 23px;
+            transition: font .1s ease;
+
+        }
+}

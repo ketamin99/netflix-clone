@@ -6,35 +6,27 @@ function MvDetail({ movieId }) {
 
   const [movieVideos, setMovieVideos] = useState()
 
-  const [movieDisplay, setMovieDisplay] = useState()
+  const [movieDisplayQuantity, setMovieDisplayQuantity] = useState(3)
 
-
-  
 
   useEffect(() => {
     async function getVideos(){
       let mvData = await tmdbApi.fetchMovieVideos(movieId)
-      setMovieVideos(mvData.data.results)
-      return mvData.data.results
+      setMovieVideos(mvData.results)
+      return mvData.results
     }
     getVideos()
   },[movieId])
-
-  useEffect(() => {
-    function handleMovieDisplay(){
-      let mvDisplay = movieVideos?.slice(0,3)
-      setMovieDisplay(mvDisplay) 
-    }
-    handleMovieDisplay()
-  },[movieVideos])
-
   
-
+  function handleShowMoreButton(){
+    setMovieDisplayQuantity(movieDisplayQuantity+3)
+  }
 
   return (
     <div className='watch'>
       <div className='watch__videos'>
-        {movieDisplay?.map(movie =>(
+        {movieVideos?.map((movie,index) =>(
+          index < movieDisplayQuantity && 
           <div 
             className='watch__video'
             key={`video${movie.id}`}
@@ -54,6 +46,13 @@ function MvDetail({ movieId }) {
             </iframe>
           </div>
         ))}
+        {movieDisplayQuantity >= movieVideos?.length ||
+        <button
+          type='button'
+          onClick={handleShowMoreButton}
+        >Show More
+        </button>
+        }
       </div>
      
     </div>

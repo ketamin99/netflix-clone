@@ -7,15 +7,11 @@ const tmdbApi= {
     },
     fetchMovieDetails: (movieId)=> {
         return axios.get(`movie/${movieId}?${requests.apiKey}`)
-
     },
     fetchMovieKeywords: (keyword) => {
         return axios.get(`${requests.fetchSearchKeyword}query=${keyword}`)
-        
     },
     
-    
-      
-  }
+}
 
   export default tmdbApi;

@@ -14,8 +14,8 @@ function Row({ title, fetchUrl }) {
   useEffect(() => {
     async function fetchData() {
       const getData = await axios.get(fetchUrl)
-      setMovieList(getData.data.results)
-      return getData.data.results
+      setMovieList(getData.results)
+      return getData.results
     }
     fetchData()
   }, [fetchUrl]);

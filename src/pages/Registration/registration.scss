@@ -7,5 +7,74 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #e6e6e6;
+        
+    }
+    .registration__details{
+        display:flex;
+        margin-top: 50px;
+        .details__container{
+            margin:auto;
+            max-width:444px;
+            .details--header{
+                h2{
+                    color: #000;
+                    font-size:32px;
+                    font-weight: 550;
+                    margin:10px 0;
+                }
+                h3,h4{
+                    color: #000;
+                    font-weight: 200;
+                }
+                h3{
+                    b{
+                        background-color: white;
+                        color:black;
+                    }
+                }
+            }
+            .details--content{
+                form{
+                    div{
+                        @include inputFormAnimation;
+                        input{
+                            width: 100%;
+                            max-width: 440px;
+                            height: 60px;
+                            margin: 8px 0;
+                            background-color: white;
+                        }
+                        h4{
+                            color: #c33035;
+                            font-weight: 150;
+                        }
+                    }
+                    span{
+                        display: flex;
+                        background-color: transparent;
+                        input{
+                            width: 27px;     
+                            height: 27px;
+                            margin-right: 10px;
+                        }
+                        h3{
+                            color:#333333;
+                            font-size: 16px;
+                        }
+
+                    }
+                }
+                button{
+                    background-color:red;
+                    color:white;
+                    width: 100%;
+                    max-width:444px;
+                    height: 60px;
+                    border-radius: 5px;
+                    margin:auto;
+                    margin-top: 10px;
+                }
+            }
+        }
     }
 }

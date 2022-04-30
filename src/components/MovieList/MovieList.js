@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react'
-import tmdbApi from '../../api/tmdbApi'
 import requests from '../../api/requestsMvList'
 import './movieList.scss'
 
@@ -11,9 +10,9 @@ function MovieList({ keyword }) {
 
     useEffect(() => {
         async function getSearchMovie(){
-            let mvData = await tmdbApi.fetchMovieKeywords(keyword)
+            let mvData = await requests.fetchMovieKeywords(keyword)
 
-            let filterMvData = mvData.data.results.filter(movie => movie.backdrop_path || movie.poster_path)
+            let filterMvData = mvData.results.filter(movie => movie.backdrop_path || movie.poster_path)
 
             setMvList(filterMvData)
         }
@@ -26,7 +25,7 @@ function MovieList({ keyword }) {
     <div className="search">
       <div className="search__videos">
         {mvList?.map(movie => (
-          <div className="search__video" onClick={console.log(123)} >
+          <div className="search__video"  >
             <a href={`/watch/${movie.id}`} >
               <img 
               src={`${requests.orginalImage}${movie.poster_path || movie.backdrop_path}`}

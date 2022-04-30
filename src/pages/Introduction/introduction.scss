@@ -31,59 +31,30 @@
                 margin-bottom: 20px;
     
             }
-            div{
+            form{
                 display: flex;
                 justify-content:center;
-                form{
-                    position: relative;
+                div{
+                    @include inputFormAnimation;
+                    margin-left: 10px;
                     input{
-                        background-color:white;
-                        min-width: 500px;
+            background-color:white;
+            min-width: 500px;
                         height: 60px;
-                        font-size: 25px;
-                        color: #000;
-                    };
-                    input:not(:placeholder-shown) + label{
-                        position: absolute;
-                        top: 10%;
-                        left: 10px;
-                        transition:font  .1s ease;
-                        font-size: 13px;
-                        color: #8c8c8c;
-
                     }
-                    input:focus + label{
-                        position: absolute;
-                        top: 10%;
-                        left: 10px;
-                        transition:font  .1s ease;
-                        font-size: 13px;
-                        color: #8c8c8c;
-
-                    };
-                    
-                    
-                    label{
-                        position: absolute;
-                        top: 30%;
-                        left: 10px;
-                        color: #8c8c8c;
-                        font-size: 23px;
-                        transition: font .1s ease;
-
+                    button{
+                        background-color:red;
+                        height: 60px;
+                        span{
+                            font-size:1.625rem;
+                            text-decoration: none;
+                            background-color: red;
+                        }
+                        
                     }
                     
                 }
                 
-                button{
-                    background-color:red;
-                    height: 60px;
-                    a{
-                        font-size:1.625rem;
-                        text-decoration: none;
-
-                    }
-                }
                 
                 
     

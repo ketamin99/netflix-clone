@@ -1,10 +1,22 @@
-import React from 'react'
+import {React, useRef, useState, useEffect} from 'react'
 import Logo from '../../assets/Logo/Logo'
 import SignInBtn from '../../assets/Sign-in/SignInBtn';
 import { FaAngleRight } from 'react-icons/fa';
 import './introduction.scss'
 
 function Introduction() {
+  const [email,setEmail] = useState()
+  const emailRef = useRef(null)
+
+    function handleEmailInput(){
+      let email = emailRef.current.value
+      setEmail(email)
+      return email
+    }
+    
+    
+  
+
   return (
     <div className="introduction">
       <div className="header">
@@ -24,22 +36,27 @@ function Introduction() {
           <h3>
             Ready to watch? Enter your email to create or restart your membership.
           </h3>
-          <div>
             <form>
+          <div>
               <input 
                 type="email" 
                 placeholder=" "
+                autocomplete="email" 
+                maxlength="50" 
+                minlength="5" 
+                ref={emailRef}
+                onChange={handleEmailInput}
               >
               </input>
               <label>Email address</label>
-            </form>
-              <button>
-                  <a href="/registration" >
-                    Get Started
-                  </a>
-                  <FaAngleRight />
+              <button type="submit">
+                    <span>
+                      Get Started
+                    </span>
+                    <FaAngleRight />
               </button>
           </div>
+            </form>
         </div>
       </div>
       

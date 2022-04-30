@@ -16,8 +16,8 @@ function Header({ fetchUrl, movieId }) {
   useEffect(() => { 
     async function getMovieDetails(){
       let mvDetails = await tmdbApi.fetchMovieDetails(movieId)
-      setMovieData(mvDetails.data)
-      return mvDetails.data
+      setMovieData(mvDetails)
+      return mvDetails
     }
     getMovieDetails()
   },[movieId])
@@ -25,8 +25,8 @@ function Header({ fetchUrl, movieId }) {
   useEffect(()=>{
     async function getMovieBanner(){
       const movieData = await axios.get(fetchUrl)
-      let randomIndex = Math.floor(Math.random() * movieData.data.results.length) 
-      setMovieData(movieData.data.results[randomIndex]);
+      let randomIndex = Math.floor(Math.random() * movieData.results.length) 
+      setMovieData(movieData.results[randomIndex]);
     }
     getMovieBanner()
   },[fetchUrl])
@@ -75,6 +75,9 @@ function Header({ fetchUrl, movieId }) {
           <h2>{movieData.original_title || movieData.name }</h2>
           <br />
           <h4>{movieData.overview}</h4>
+          <div>
+            <a href={`/watch/${movieData.id}`}>Play Now</a>
+          </div>
         </div>}
       </div>
     </div>
