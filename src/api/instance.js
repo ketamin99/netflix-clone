@@ -4,7 +4,7 @@ import { apiKey } from './requestsMvList'
 
 const instance = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
-    timeout:10000,
+    timeout:30000,
     paramsSerializer: params => queryString.stringify({...params, api_key: apiKey})
 });
 

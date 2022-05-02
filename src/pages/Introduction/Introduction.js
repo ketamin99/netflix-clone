@@ -42,9 +42,9 @@ function Introduction() {
               <input 
                 type="email" 
                 placeholder=" "
-                autocomplete="email" 
-                maxlength="50" 
-                minlength="5" 
+                autoComplete="email" 
+                maxLength="50" 
+                minLength="5" 
                 ref={emailRef}
                 onChange={handleEmailInput}
               >

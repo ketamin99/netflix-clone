@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header'
 import requestsMvList from '../../api/requestsMvList'
 import './home.scss'
 
-function home() {
+function Home() {
   return (
     <div>
         <Header fetchUrl={requestsMvList.fetchNetflixOriginals} />
@@ -37,4 +37,4 @@ function home() {
   )
 }
 
-export default home
+export default Home
