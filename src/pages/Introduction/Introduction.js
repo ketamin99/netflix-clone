@@ -1,18 +1,19 @@
-import {React, useRef, useState, useEffect} from 'react'
+import {React, useRef, useState} from 'react'
 import Logo from '../../assets/Logo/Logo'
 import SignInBtn from '../../assets/Sign-in/SignInBtn';
 import { FaAngleRight } from 'react-icons/fa';
 import './introduction.scss'
 
 function Introduction() {
-  const [email,setEmail] = useState()
+  const [setEmail] = useState()
+
   const emailRef = useRef(null)
 
-    function handleEmailInput(){
-      let email = emailRef.current.value
-      setEmail(email)
-      return email
-    }
+  function handleEmailInput(){
+    let emailValue = emailRef.current.value
+    setEmail(emailValue)
+    return emailValue
+  }
     
     
   

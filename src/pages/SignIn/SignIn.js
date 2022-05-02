@@ -1,5 +1,5 @@
 import {React, useRef} from 'react'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../firebase/firebase'
 import Logo from '../../assets/Logo/Logo'
 import './signIn.scss'
