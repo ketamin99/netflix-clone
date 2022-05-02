@@ -1,19 +1,30 @@
 import { Routes, Route } from "react-router-dom"
 import './App.scss';
+import { onAuthStateChanged } from "firebase/auth";
 import Home from './pages/Home/Home'
 import Watch from './pages/Watch/Watch'
 import Search from './pages/Search/Search'
 import Introduction from './pages/Introduction/Introduction'
 import SignIn from './pages/SignIn/SignIn'
 import Registration from './pages/Registration/Registration'
-import { auth } from './firebase/firebase'
+import { useEffect } from "react";
 
 
 function App() {
 
-  const user = auth.currentUser;
+  const user = null;
   
   console.log(user);
+  useEffect(() => {
+    const unsubcribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+      } else {
+        
+      }
+    });
+    return unsubcribe;
+  },[])
   return (
     <div className="App">
       <Routes> 
