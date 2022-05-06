@@ -3,14 +3,17 @@ import { useNavigate } from 'react-router-dom'
 import axios from '../../api/instance'
 import requests from '../../api/requestsMvList'
 import tmdbApi from '../../api/tmdbApi'
+import profileAvatar from '../../assets/Profile.png'
 import Logo from '../../assets/Logo/Logo'
 import './header.scss'
 import { BsSearch } from 'react-icons/bs'
+
 
 function Header({ fetchUrl, movieId }) {
   const [keywords, setKeyWords] = useState('')
 
   const [movieData, setMovieData] = useState()
+
 
 
   useEffect(() => { 
@@ -35,15 +38,16 @@ function Header({ fetchUrl, movieId }) {
   let navigate = useNavigate();
   
  
-    function handleInputChange(e){
-      setKeyWords(e.target.value)
-    }
+  function handleInputChange(e){
+    setKeyWords(e.target.value)
+  }
     
  
   function handleSearch(){
     navigate(`/search/${keywords}`)
     
   }
+  
   
 
   return (
@@ -63,6 +67,10 @@ function Header({ fetchUrl, movieId }) {
           <button onClick={handleSearch}>
             <BsSearch  />
           </button>
+          <img 
+            onClick={() => navigate('/profile')} 
+            src={profileAvatar}  
+            alt="Profile Avatar"/>
         </form>}
       </div>
       <div className="slideShow">

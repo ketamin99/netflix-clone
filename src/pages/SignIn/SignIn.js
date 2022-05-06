@@ -1,5 +1,4 @@
 import {React, useRef} from 'react'
-import { login } from '../../features/userSlice'
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../firebase/firebase'
 import Logo from '../../assets/Logo/Logo'
@@ -9,21 +8,16 @@ function SignIn() {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 
-
+  
   function handleSignInButton(e){
     e.preventDefault()
     signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
-      .then((userCredential) => {
-        console.log(userCredential.user);
-        if(userCredential.user){
-          console.log(login);
-
-        }
+    .then((user) => {
+        console.log(user);
+        
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode,errorMessage );
+        alert(error.message)
       });
   }
 
@@ -44,9 +38,9 @@ function SignIn() {
                 <input ref={passwordRef} type="password" placeholder="Password"></input>
               </div>
               <button onClick={handleSignInButton} type="submit" >
-                
-                  Sign In
-                
+                  
+                    Sign In
+
               </button>
               <h4>
                 <span>New to Netflix ?</span>
