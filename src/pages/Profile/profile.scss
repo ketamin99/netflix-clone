@@ -1,8 +1,26 @@
 .profile{
+    display:flex;
+    width:100%;
+    height: 100vh;
+    justify-content: center;
     .profile__header{
-
+        
     }
     .profile__container{
-
+        margin:auto;
+        
+        .profile__details{
+            .details--avatar{
+                img{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            .details--info{
+                h3{
+                    color:white;
+                }
+            }
+        }
     }
 }

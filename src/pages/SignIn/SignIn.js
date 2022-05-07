@@ -1,4 +1,5 @@
 import {React, useRef} from 'react'
+import { GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../firebase/firebase'
 import Logo from '../../assets/Logo/Logo'
@@ -21,6 +22,20 @@ function SignIn() {
       });
   }
 
+  function handleSignInGoogle(e){
+    e.preventDefault()
+    const provider = new GoogleAuthProvider();
+    signInWithRedirect(auth, provider);
+
+    getRedirectResult(auth)
+    .then((result) => {
+      const user = result.user;
+      console.log(user);
+    }).catch((error) => {
+      alert(error)
+    });
+  }
+
 
   return (
     <div className="sign-in">
@@ -38,9 +53,10 @@ function SignIn() {
                 <input ref={passwordRef} type="password" placeholder="Password"></input>
               </div>
               <button onClick={handleSignInButton} type="submit" >
-                  
                     Sign In
-
+              </button>
+              <button onClick={handleSignInGoogle} type="submit">
+                Sign In with Google  
               </button>
               <h4>
                 <span>New to Netflix ?</span>

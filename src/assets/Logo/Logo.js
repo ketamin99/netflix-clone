@@ -14,7 +14,7 @@ function Logo() {
   return (
     <div
       style={{backgroundColor:'transparent'}}>
-        <a href="/" 
+        <a href="/home" 
            style={{backgroundColor:'transparent'}}>
           <svg    
             xmlns="http://www.w3.org/2000/svg" 

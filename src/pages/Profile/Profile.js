@@ -1,22 +1,13 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
-import { useSelector } from 'react-redux'
-import { selectUser } from '../../features/userSlice'
 import profileAvatar from '../../assets/Profile.png'
-import './profile.scss'
-import { signOut } from 'firebase/auth'
 import { auth } from '../../firebase/firebase'
+import './profile.scss'
 
 function Profile() {
-    const user = useSelector(selectUser)
+    const user = auth.currentUser;
 
-    function handleSignOutButton(){
-        signOut(auth).then(() => {
-            // Sign-out successful.
-          }).catch((error) => {
-            alert(error)
-        });
-    }
+   
   return (
     <div className='profile'>
         <div className='profile__header'>
@@ -30,7 +21,9 @@ function Profile() {
                 </div>
                 <div className='details--info'>
                     <h3>{user.email}</h3>
-                    <button onClick={handleSignOutButton}>Sign Out</button>
+                    <div className='details--plans'>
+                        <button onClick={() => auth.signOut()}>Sign Out</button>
+                    </div>
                 </div>
             </div>
         </div>
