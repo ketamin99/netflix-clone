@@ -1,5 +1,5 @@
 import { React, useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from '../../api/instance'
 import requests from '../../api/requestsMvList'
 import tmdbApi from '../../api/tmdbApi'
@@ -84,7 +84,7 @@ function Header({ fetchUrl, movieId }) {
           <br />
           <h4>{movieData.overview}</h4>
           <div>
-            <a href={`/watch/${movieData.id}`}>Play Now</a>
+            <Link to={`/watch/${movieData.id}`}>Play Now</Link>
           </div>
         </div>}
       </div>

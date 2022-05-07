@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import requests from '../../api/requestsMvList'
 import './movieList.scss'
 
@@ -26,7 +27,7 @@ function MovieList({ keyword }) {
       <div className="search__videos">
         {mvList?.map(movie => (
           <div className="search__video"  >
-            <a href={`/watch/${movie.id}`} >
+            <Link to={`/watch/${movie.id}`} >
               <img 
               src={`${requests.orginalImage}${movie.poster_path || movie.backdrop_path}`}
               alt={movie.orginal_title}
@@ -36,7 +37,7 @@ function MovieList({ keyword }) {
                 key={`title${movie.id}`}
               >{movie.original_title}</h3>
 
-            </a>
+            </Link>
           </div>
 
         ))}

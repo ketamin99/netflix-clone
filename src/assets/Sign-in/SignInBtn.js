@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SignInBtn() {
   const divStyle ={
@@ -22,12 +23,12 @@ function SignInBtn() {
     <div
       style={divStyle}
     >
-      <a 
-        href="/sign-in" 
+      <Link 
+        to="/sign-in" 
         style={aStyle}
         >
           Sign In
-      </a>
+      </Link>
     </div>
     
   )

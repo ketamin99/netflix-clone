@@ -4,6 +4,7 @@ import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../firebase/firebase'
 import Logo from '../../assets/Logo/Logo'
 import './signIn.scss'
+import { Link } from 'react-router-dom';
 
 function SignIn() {
   const emailRef = useRef(null)
@@ -60,7 +61,7 @@ function SignIn() {
               </button>
               <h4>
                 <span>New to Netflix ?</span>
-                <a href='/registration'> Sign Up now</a>
+                <Link to='/registration'> Sign Up now</Link>
               </h4>
           </form>
         </div>

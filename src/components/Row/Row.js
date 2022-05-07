@@ -3,6 +3,7 @@ import axios from '../../api/instance'
 import requestsMvList from '../../api/requestsMvList'
 import './row.scss'
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 
 function Row({ title, fetchUrl }) {
@@ -46,7 +47,7 @@ function Row({ title, fetchUrl }) {
           <div
             key={`container${movie.id}`}
             className='row__poster'>
-              <a href={`/watch/${movie.id}`}>
+              <Link to={`/watch/${movie.id}`}>
                 <img
                   ref={posterImg}
                   key={`img${movie.id}`}
@@ -59,7 +60,7 @@ function Row({ title, fetchUrl }) {
                   key={`title${movie.id}`}>
                     {movie.name || movie.title}
                 </h3>
-              </a>
+              </Link>
 
           </div>
         ))}
