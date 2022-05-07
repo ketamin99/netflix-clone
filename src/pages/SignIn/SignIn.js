@@ -9,12 +9,12 @@ function SignIn() {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 
+
   
   function handleSignInButton(e){
     e.preventDefault()
     signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
     .then((user) => {
-        console.log(user);
         
       })
       .catch((error) => {

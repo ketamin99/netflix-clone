@@ -17,13 +17,11 @@ function App() {
 
   const user = useSelector(selectUser);
 
-  console.log(user);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
-        console.log(userAuth);
         dispatch(login({
           uid:userAuth.uid,
           email:userAuth.email,
@@ -34,6 +32,7 @@ function App() {
     })
     return unsubcribe;
   },[dispatch])
+  
 
   return (
     <div className="App">

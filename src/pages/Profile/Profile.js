@@ -1,13 +1,18 @@
-import React from 'react'
+import {React} from 'react'
+import {  useSelector } from 'react-redux'
+import {  selectUser } from "../../features/userSlice";
 import Header from '../../components/Header/Header'
 import profileAvatar from '../../assets/Profile.png'
 import { auth } from '../../firebase/firebase'
 import './profile.scss'
 
 function Profile() {
-    const user = auth.currentUser;
 
-   
+
+let user = useSelector(selectUser);
+
+
+
   return (
     <div className='profile'>
         <div className='profile__header'>
@@ -20,10 +25,8 @@ function Profile() {
                     <img src={profileAvatar}  alt='Profile Avatar'/>
                 </div>
                 <div className='details--info'>
-                    <h3>{user.email}</h3>
-                    <div className='details--plans'>
-                        <button onClick={() => auth.signOut()}>Sign Out</button>
-                    </div>
+                    <h3>Email: {user.user.email}</h3>
+                    <button onClick={() => auth.signOut()}>Sign Out</button>
                 </div>
             </div>
         </div>

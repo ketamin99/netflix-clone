@@ -1,5 +1,6 @@
 import {React, useRef} from 'react'
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom'
 import { auth } from '../../firebase/firebase'
 import Logo from '../../assets/Logo/Logo'
 import SignInBtn from '../../assets/Sign-in/SignInBtn'
@@ -9,6 +10,8 @@ function Registration() {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 
+  let navigate = useNavigate();
+
   function Registration(e){
     e.preventDefault()
     createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
@@ -17,6 +20,7 @@ function Registration() {
       const user = userCredential.user;
       // ...
       console.log(user);
+      navigate('/home')
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -57,7 +61,7 @@ function Registration() {
                   >
                   </input>
                 <label>Email</label>
-                <h4>Email should be between 5 and 50 characters</h4>
+                
               </div>
               <div>
                   <input 
@@ -70,7 +74,7 @@ function Registration() {
                     <label>
                       Add a password
                     </label>
-                  <h4>Password should be between 6 and 60 characters</h4>
+                  
               </div>
               <span>
                 <input 
@@ -80,7 +84,7 @@ function Registration() {
               </span>
             </form>
               <button onClick={Registration}>
-                Next
+                Sign Up
               </button>
           </div>
         </div>

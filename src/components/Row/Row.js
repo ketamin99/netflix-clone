@@ -5,11 +5,11 @@ import './row.scss'
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
 
-
-
 function Row({ title, fetchUrl }) {
   const [movieList, setMovieList] = useState([])
 
+  const rowPosters = useRef(null)
+  const posterImg = useRef(null)
 
   useEffect(() => {
     async function fetchData() {
@@ -20,17 +20,6 @@ function Row({ title, fetchUrl }) {
     fetchData()
   }, [fetchUrl]);
 
-
-  const rowPosters = useRef(null)
-  const posterImg = useRef(null)
-  
-  
-
-  
-    
-
-  
- 
 
   function scrollLeft() {
     rowPosters.current.scrollBy({
@@ -47,11 +36,6 @@ function Row({ title, fetchUrl }) {
     })
   }
 
-
-
-  
-
-  console.log(axios.or)
 
   return (
     <div className='row'>

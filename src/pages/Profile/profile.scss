@@ -10,15 +10,25 @@
         margin:auto;
         
         .profile__details{
+            display: flex;
             .details--avatar{
                 img{
-                    width: 50px;
-                    height: 50px;
+                    width: 60px;
+                    height: 60px;
+                    margin: 10px;
                 }
             }
             .details--info{
                 h3{
                     color:white;
+                }
+                button{
+                    background-color: red;
+                    width: 100%;
+                    height: 43px;
+                    border-radius: 5px;
+                    font-size: 25px;
+                    margin: 20px 0;
                 }
             }
         }
